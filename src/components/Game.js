@@ -15,12 +15,13 @@ const Game = (props) => {
     var [winner, setWinner] = useState(false)
     // var [refreshFlag, setRefreshFlag] = useState(false) // Can probably use currentPlayer as a refresh flag.
     
-    // // Have to use the below so that the dice values update right after rolling.
-    // useEffect(() => {
-    // }, [refreshFlag])
+    // Have to use the below so that the dice values update right after rolling.
+    useEffect(() => {
+    }, [firstDie])
 
     const nextTurn = () => {
         setCurrentPlayer((currentPlayer + 1) % props.players.length)
+        setChoose(false)
     }
 
     const checkWin = () => {
@@ -53,39 +54,39 @@ const Game = (props) => {
             setMessage(`${first + second} was added to your turn score. Continue rolling.`)
             newPlayersList[currentPlayer].turnScore += (first + second)
         }
-        props.setPlayers(newPlayersList)
-
-        
+        props.setPlayers(newPlayersList)        
     }
 
     const rollDice = (e) => {
         e.preventDefault()
         let first = Math.floor(Math.random() * 6) + 1
         let second = Math.floor(Math.random() * 6) + 1
+        // let first = 6 // For testing purposes.
+        // let second = 6
         handleDiceLogic(first, second)
         setFirstDie(first)
         setSecondDie(second)
     }
 
-    
-    return (
+    const hold = () => {
+        let newPlayersList = props.players
+        newPlayersList[currentPlayer].totalScore += newPlayersList[currentPlayer].turnScore
+        newPlayersList[currentPlayer].turnScore = 0
+        props.setPlayers(newPlayersList)
+        checkWin()
+        setMessage(`It's now ${props.players[(currentPlayer + 1) % props.players.length].name}'s turn!`)
+        setSecondMessage('')
+        setChoose(false)
+        nextTurn()
+    }
+
+    // Either display winner, or continue playing the game.
+    let display = winner ? 
         <div>
-            <p>Game Component</p>
-            { props.players.map((player, i) => {
-                if (i === currentPlayer) {
-                    return (
-                        <div>
-                            {/* <h3>Current Player is:</h3> */}
-                            <Player player={player} current={true} />
-                        </div>
-                    )
-                } else {
-                    return (
-                    <Player player={player} current={false} />
-                    )
-                }
-            })}
-        
+            <b>{props.players[currentPlayer - 1].name} is the winner with a total score of {props.players[currentPlayer - 1].totalScore}!!!</b>
+        </div> 
+        :
+        <div>
             <hr />
             <div>
                 <b>{props.players[currentPlayer].name}</b> is the current player
@@ -108,11 +109,55 @@ const Game = (props) => {
             <br />
             <div>
                 <Button style={{display: 'inline-block', marginRight: '10px'}} variant="success" onClick={(e)=>rollDice(e)}>Roll the Dice!</Button>
-                {choose ? <Button style={{display: 'inline-block'}} variant="info">Hold</Button> : <div></div>}
+                {choose ? <Button style={{display: 'inline-block'}} variant="info" onClick={(e)=>hold(e)}>Hold</Button> : <div></div>}
+            </div>
+        </div>
+    
+    return (
+        <div>
+            <p>Game Component</p>
+            { props.players.map((player, i) => {
+                if (i === currentPlayer) {
+                    return (
+                        <div>
+                            {/* <h3>Current Player is:</h3> */}
+                            <Player player={player} current={true} />
+                        </div>
+                    )
+                } else {
+                    return (
+                    <Player player={player} current={false} />
+                    )
+                }
+            })}
+            {display}
+            {/* <hr />
+            <div>
+                <b>{props.players[currentPlayer].name}</b> is the current player
+                <br />
+                Total score: {props.players[currentPlayer].totalScore}
+                <br />
+                Turn score: {props.players[currentPlayer].turnScore}
+                
             </div>
             
             <hr />
-            <h3>How to Play Pig</h3>
+            < Die value={firstDie} />
+            < Die value={secondDie} />
+            <br />
+            <div>
+                <b>{message}</b>
+                <br />
+                <b>{secondMessage}</b>
+            </div>
+            <br />
+            <div>
+                <Button style={{display: 'inline-block', marginRight: '10px'}} variant="success" onClick={(e)=>rollDice(e)}>Roll the Dice!</Button>
+                {choose ? <Button style={{display: 'inline-block'}} variant="info">Hold</Button> : <div></div>}
+            </div> */}
+            
+            <hr />
+            <h3>How to Play Pig Pig</h3>
             - Each player rolls two 6-sided dice
             <br />
             -- if both dice are 1's (snake eyes), their total score goes to 0 and it goes on to the next player
@@ -125,7 +170,7 @@ const Game = (props) => {
             <br />
             --- if a player choose to hold, then their turn ends and their turn score gets added to their total score
 
-            - if either player reaches >= 100 points, they win and the game ends
+            - if either player reaches >= 100 points for their total score, they win and the game ends
         </div>
     );
 }

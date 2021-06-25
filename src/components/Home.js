@@ -54,7 +54,7 @@ const Home = (props) => {
                 < Game players={players} setPlayers={setPlayers} />
             : 
             <div>
-                <h3>Welcome to Pig!</h3>
+                <h3>Welcome to Pig Pig!</h3>
                 <div>‏‏‎ ‎</div>
                 <Form.Group>
                     <Col sm={2} xs="auto">
