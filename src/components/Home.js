@@ -29,8 +29,9 @@ const Home = (props) => {
     const addPlayer = (e) => {
         e.preventDefault()
         if (playerName.length > 0) {
+            let player = { name: playerName, turnScore: 0, totalScore: 0, totalWins: 0}
             let newPlayersList = players
-            newPlayersList.push(playerName)
+            newPlayersList.push(player)
             setPlayers(newPlayersList)
             console.log("hello add comment")  
             console.log("List of players is: ", players)   
@@ -73,7 +74,7 @@ const Home = (props) => {
                         <h3>Current Players:</h3>
                         {players.map((player, i) => (
                             <div className='player-cards'>
-                                <h3 className='title bold'>{i + 1}. {player}</h3>
+                                <h3 className='title bold'>{i + 1}. {player.name}</h3>
                             </div>
                         ))}
                         
