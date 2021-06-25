@@ -51,7 +51,7 @@ const Home = (props) => {
             <div>‏‏‎ ‎‎‎</div>
             <div>‏‏‎ ‎</div>
             { start ? 
-                < Game players={players} />
+                < Game players={players} setPlayers={setPlayers} />
             : 
             <div>
                 <h3>Welcome to Pig!</h3>
