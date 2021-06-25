@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Player = () => {
+const Die = () => {
     
     return (
         <div>
-            <p>Player Component</p>
+            <p>Die Component</p>
         </div>
     );
 }
 
-export default Player;
+export default Die;
