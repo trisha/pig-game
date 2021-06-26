@@ -7,6 +7,7 @@ import Die from './Die'
 // props.setPlayers
 const Game = (props) => {
     var [currentPlayer, setCurrentPlayer] = useState(0)
+    var [bgColor, setBgColor] = useState('orange')
     var [firstDie, setFirstDie] = useState(Math.floor(Math.random() * 6) + 1)
     var [secondDie, setSecondDie] = useState(Math.floor(Math.random() * 6) + 1)
     var [message, setMessage] = useState('')
@@ -21,6 +22,9 @@ const Game = (props) => {
 
     const nextTurn = () => {
         setCurrentPlayer((currentPlayer + 1) % props.players.length)
+        if (bgColor == 'orange') {
+            setBgColor('lightcyan')
+        } else setBgColor('orange')
         setChoose(false)
     }
 
@@ -88,7 +92,7 @@ const Game = (props) => {
         :
         <div>
             <hr />
-            <div>
+            <div style={{backgroundColor: `${bgColor}`}}>
                 <b>{props.players[currentPlayer].name}</b> is the current player
                 <br />
                 Total score: {props.players[currentPlayer].totalScore}
