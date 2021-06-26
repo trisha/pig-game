@@ -161,14 +161,14 @@ const Game = (props) => {
             
             <hr />
             <h3>How to Play Pig Pig</h3>
-            The game 'Pig Pig' is based on the timeless dice game, 'Pig,' which is traditionally played with one 6-sided die.
+            The game 'Pig Pig' is based on the timeless dice game, 'Pig,' which is traditionally played with one 6-sided die and 2 or more players.
             <br />
-            However, we like to roll fast--so Pig Pig is the faster-paced version of 'Pig' with a twist, and twice the dice!!!
+            However, we like to roll fast--so Pig Pig is the faster-paced version of 'Pig' with a twist 🐖 , and twice the dice!!!
             <br />
             <br />
             Each player rolls two dice at a time, where the goal is to get a total score of over 100, thereby becoming the winner and ending the game.
             <br />
-            If both dice are 1's (snake eyes), your total score goes to 0 and it goes on to the next player.
+            If both dice are 1's (snake eyes 🐍), your total score goes to 0 and it goes on to the next player.
             <br />
             Elif one die is a 1, nothing gets added to your total score (regardless of your turn score) and move on to the next player.
             <br />
