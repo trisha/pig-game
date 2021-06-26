@@ -133,30 +133,7 @@ const Game = (props) => {
                 }
             })}
             {display}
-            {/* <hr />
-            <div>
-                <b>{props.players[currentPlayer].name}</b> is the current player
-                <br />
-                Total score: {props.players[currentPlayer].totalScore}
-                <br />
-                Turn score: {props.players[currentPlayer].turnScore}
-                
-            </div>
             
-            <hr />
-            < Die value={firstDie} />
-            < Die value={secondDie} />
-            <br />
-            <div>
-                <b>{message}</b>
-                <br />
-                <b>{secondMessage}</b>
-            </div>
-            <br />
-            <div>
-                <Button style={{display: 'inline-block', marginRight: '10px'}} variant="success" onClick={(e)=>rollDice(e)}>Roll the Dice!</Button>
-                {choose ? <Button style={{display: 'inline-block'}} variant="info">Hold</Button> : <div></div>}
-            </div> */}
             
             <hr />
             <h3>How to Play Pig Pig</h3>
