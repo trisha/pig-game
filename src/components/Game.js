@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Player from './Player'
 import Die from './Die'
 
 // props.players = [{ name: playerName, turnScore: 0, totalScore: 0, totalWins: 0}, {}]
-// props.setPlayers
+// props.setPlayers // function for updating props.players list.
 const Game = (props) => {
     var [currentPlayer, setCurrentPlayer] = useState(0)
     var [bgColor, setBgColor] = useState('orange')
@@ -14,7 +14,6 @@ const Game = (props) => {
     var [secondMessage, setSecondMessage] = useState('')
     var [choose, setChoose] = useState(false)
     var [winner, setWinner] = useState(false)
-    // var [refreshFlag, setRefreshFlag] = useState(false) // Can probably use currentPlayer as a refresh flag.
     
     // Have to use the below so that the dice values update right after rolling.
     useEffect(() => {
@@ -34,6 +33,7 @@ const Game = (props) => {
         }
     }
 
+    // Determines next steps based on dice results.
     const handleDiceLogic = (first, second) => {
         let newPlayersList = props.players
         setMessage('')
@@ -60,6 +60,7 @@ const Game = (props) => {
         props.setPlayers(newPlayersList)        
     }
 
+    // Randomly select a number between 1 and 6 for each die.
     const rollDice = (e) => {
         e.preventDefault()
         let first = Math.floor(Math.random() * 6) + 1
@@ -71,6 +72,7 @@ const Game = (props) => {
         setSecondDie(second)
     }
 
+    // Display this button when a player gets two non-matching dice, where neither of which is a 1. 
     const hold = () => {
         let newPlayersList = props.players
         newPlayersList[currentPlayer].totalScore += newPlayersList[currentPlayer].turnScore
@@ -117,7 +119,8 @@ const Game = (props) => {
         </div>
     
     return (
-        <div>
+        <div> 
+            {/* Overview of player scores */}
             { props.players.map((player, i) => {
                 if (i === currentPlayer) {
                     return (
@@ -132,10 +135,11 @@ const Game = (props) => {
                     )
                 }
             })}
+            {/* Either display game or win result. */}
             {display}
             
-            
             <hr />
+
             <h3>How to Play Pig Pig</h3>
             The game 'Pig Pig' is based on the timeless dice game, 'Pig,' which is traditionally played with one 6-sided die and 2 or more players.
             <br />
