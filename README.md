@@ -28,6 +28,12 @@ Navigate to http://localhost:3000/ if it doesn't open automatically
 --- if a player choose to hold, then their turn ends and their turn score gets added to their total score
 
 - if either player reaches >= 100 points, they win and the game ends
+
+# Next Steps
+- Add dice images by creating a list of image URLs for the image path for each side of the dice, and depending on the dice value in the Dice Component, render a different image path for each value
+- Deploy online 
+- Create an express app so that win count can be stored in a database
+
 -----
 
 # Getting Started with Create React App
