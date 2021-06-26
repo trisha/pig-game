@@ -23,7 +23,7 @@ const Game = (props) => {
     const nextTurn = () => {
         setCurrentPlayer((currentPlayer + 1) % props.players.length)
         if (bgColor == 'orange') {
-            setBgColor('lightcyan')
+            setBgColor('pink')
         } else setBgColor('orange')
         setChoose(false)
     }
@@ -119,7 +119,6 @@ const Game = (props) => {
     
     return (
         <div>
-            <p>Game Component</p>
             { props.players.map((player, i) => {
                 if (i === currentPlayer) {
                     return (
@@ -162,19 +161,24 @@ const Game = (props) => {
             
             <hr />
             <h3>How to Play Pig Pig</h3>
-            - Each player rolls two 6-sided dice
+            The game 'Pig Pig' is based on the timeless dice game, 'Pig,' which is traditionally played with one 6-sided die.
             <br />
-            -- if both dice are 1's (snake eyes), their total score goes to 0 and it goes on to the next player
+            However, we like to roll fast--so Pig Pig is the faster-paced version of 'Pig' with a twist, and twice the dice!!!
             <br />
-            -- elif one die is a 1, add nothing to their total score (regardless of their turn score) and move on to the next player
             <br />
-            -- elif there are any matching numbers that aren't 1, the sum is added to the turn total (as usual) but the player MUST roll again and doesn't have the option to hold 
+            Each player rolls two dice at a time, where the goal is to get a total score of over 100, thereby becoming the winner and ending the game.
             <br />
-            -- else (if neither dice show a 1), the sum of both dice are added to the turn total, and the player's turn continues unless they choose to hold
+            If both dice are 1's (snake eyes), your total score goes to 0 and it goes on to the next player.
             <br />
-            --- if a player choose to hold, then their turn ends and their turn score gets added to their total score
-
-            - if either player reaches >= 100 points for their total score, they win and the game ends
+            Elif one die is a 1, nothing gets added to your total score (regardless of your turn score) and move on to the next player.
+            <br />
+            Elif there are any matching numbers that aren't 1, the sum of your roll is added to the turn total (as usual) but you MUST roll again and don't have the option to hold. 
+            <br />
+            Else (if neither dice show a 1), the sum of both dice are added to the turn total, and the player's turn continues unless they choose to hold 💎 🙌 .
+            <br />
+            If a player choose to hold, then their turn ends and their turn score gets added to their total score.
+            <br />
+            May you win pig! 🐷
         </div>
     );
 }
