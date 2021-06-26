@@ -176,7 +176,7 @@ const Game = (props) => {
             <br />
             Else (if neither dice show a 1), the sum of both dice are added to the turn total, and the player's turn continues unless they choose to hold 💎 🙌 .
             <br />
-            If a player choose to hold, then their turn ends and their turn score gets added to their total score.
+            If a player chooses to hold, then their turn ends and their turn score gets added to their total score.
             <br />
             May you win pig! 🐷
         </div>
