@@ -8,6 +8,9 @@ Simple application for playing the game Pig
 Navigate to http://localhost:3000/ if it doesn't open automatically 
 
 # How to Play
+- Enter your names at the beginning. Recommended 2 or more players. 
+- Choose to either roll the dice when it's your turn, or hold (if available).
+- The 'current player' panel will alternate colors to indicate when it's the next person's turn. 
 
 # Game Requirements
 - Start new game
