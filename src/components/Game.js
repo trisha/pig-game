@@ -49,13 +49,12 @@ const Game = (props) => {
             newPlayersList[currentPlayer].turnScore = 0
             nextTurn()
         } else if (first === second) {
-            checkWin()
-            setMessage("Because you got two matching numbers (that aren't 1's), choose to either continue rolling, or hold.")
-            setSecondMessage("Holding will end your turn but add your turn score to your total score.")
-            setChoose(true)
+            setMessage(`${first + second} was added to your turn score. Continue rolling.`)
             newPlayersList[currentPlayer].turnScore += (first + second)
         } else {
-            setMessage(`${first + second} was added to your turn score. Continue rolling.`)
+            setMessage("Because you got two non-matching numbers (neither of which are 1's), choose to either continue rolling, or hold.")
+            setSecondMessage("Holding will end your turn but add your turn score to your total score.")
+            setChoose(true)
             newPlayersList[currentPlayer].turnScore += (first + second)
         }
         props.setPlayers(newPlayersList)        
@@ -168,13 +167,13 @@ const Game = (props) => {
             <br />
             Each player rolls two dice at a time, where the goal is to get a total score of over 100, thereby becoming the winner and ending the game.
             <br />
-            If both dice are 1's (snake eyes 🐍), your total score goes to 0 and it goes on to the next player.
+            If both dice are 1's (snake eyes 🐍), your total score goes to 0 and it's the next player's turn.
             <br />
-            Elif one die is a 1, nothing gets added to your total score (regardless of your turn score) and move on to the next player.
+            Elif one die is a 1, nothing gets added to your total score (regardless of your turn score) and it's the next player's turn.
             <br />
             Elif there are any matching numbers that aren't 1, the sum of your roll is added to the turn total (as usual) but you MUST roll again and don't have the option to hold. 
             <br />
-            Else (if neither dice show a 1), the sum of both dice are added to the turn total, and the player's turn continues unless they choose to hold 💎 🙌 .
+            Else (if neither dice show a 1 and they're not a match), the sum of both dice are added to the turn total, and the player's turn continues unless they choose to hold 💎 🙌 .
             <br />
             If a player chooses to hold, then their turn ends and their turn score gets added to their total score.
             <br />
