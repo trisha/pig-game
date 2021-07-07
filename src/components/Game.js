@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Player from './Player'
 import Die from './Die'
@@ -14,14 +14,10 @@ const Game = (props) => {
     var [secondMessage, setSecondMessage] = useState('')
     var [choose, setChoose] = useState(false)
     var [winner, setWinner] = useState(false)
-    
-    // Have to use the below so that the dice values update right after rolling.
-    useEffect(() => {
-    }, [firstDie])
 
     const nextTurn = () => {
         setCurrentPlayer((currentPlayer + 1) % props.players.length)
-        if (bgColor == 'orange') {
+        if (bgColor === 'orange') {
             setBgColor('pink')
         } else setBgColor('orange')
         setChoose(false)
@@ -65,8 +61,6 @@ const Game = (props) => {
         e.preventDefault()
         let first = Math.floor(Math.random() * 6) + 1
         let second = Math.floor(Math.random() * 6) + 1
-        // let first = 6 // For testing purposes.
-        // let second = 6
         handleDiceLogic(first, second)
         setFirstDie(first)
         setSecondDie(second)

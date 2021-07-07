@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Col } from 'react-bootstrap';
 import Game from './Game'
 
@@ -7,10 +7,6 @@ const Home = (props) => {
     const [players, setPlayers]=useState([])
     const [playerName, setPlayerName]=useState('')
     const [refreshFlag, setRefreshFlag] = useState(false)
-
-    // Have to use the below so that the list of current players updates after a new player is added. 
-    useEffect(() => {
-    }, [refreshFlag])
     
     // Edit the name that's about to be added whenever the input field values changes. 
     const editPlayerName = (e) => {
@@ -20,7 +16,7 @@ const Home = (props) => {
     
     // Add the player name when the user hits the 'enter' key in the input field.
     const handleEnter = (e) => {
-        if (e.charCode == 13) {
+        if (e.charCode === 13) {
             addPlayer(e)
         }
     }
@@ -69,7 +65,7 @@ const Home = (props) => {
                     <Button variant="outline-primary" type="submit" onClick={(e)=>addPlayer(e)}>Add Player</Button>
                 </form>
                  */}
-                { (players.length!= 0) ? 
+                { (players.length !== 0) ? 
                     <div>
                         <h3>Current Players:</h3>
                         {players.map((player, i) => (
