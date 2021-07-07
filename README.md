@@ -3,8 +3,11 @@ Simple application for playing the game Pig
 
 # How to Install
 `git clone [URL]`
+
 `npm i` to install dependencies
+
 `npm start` 
+
 Navigate to http://localhost:3000/ if it doesn't open automatically 
 
 # How to Play
@@ -21,10 +24,15 @@ Navigate to http://localhost:3000/ if it doesn't open automatically
 
 # Pig [Rules](https://en.wikipedia.org/wiki/Pig_(dice_game))
 - Each player rolls two 6-sided dice
+
 -- if both dice are 1's (snake eyes), their total score goes to 0 and it goes on to the next player
+
 -- elif one die is a 1, add nothing to their total score (regardless of their turn score) and move on to the next player
+
 -- elif there are any matching numbers that aren't 1, the sum is added to the turn total (as usual) but the player MUST roll again and doesn't have the option to hold 
+
 -- else (if neither dice show a 1), the sum of both dice are added to the turn total, and the player's turn continues unless they choose to hold
+
 --- if a player choose to hold, then their turn ends and their turn score gets added to their total score
 
 - if either player reaches >= 100 points, they win and the game ends
