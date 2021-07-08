@@ -3,6 +3,7 @@ import { Button, Form, Col } from 'react-bootstrap';
 import Game from './Game'
 
 const Home = (props) => {
+
     const [start, setStart]=useState(false)
     const [players, setPlayers]=useState([])
     const [playerName, setPlayerName]=useState('')
@@ -26,13 +27,10 @@ const Home = (props) => {
         e.preventDefault()
         if (playerName.length > 0) {
             let player = { name: playerName, turnScore: 0, totalScore: 0, totalWins: 0}
-            let newPlayersList = players
-            newPlayersList.push(player)
-            setPlayers(newPlayersList)
-            console.log("hello add comment")  
+            setPlayers([...players, player])
             console.log("List of players is: ", players)   
             let inputBox = document.getElementsByClassName('name-input')[0] 
-            inputBox.value = ''
+            inputBox.value = '' // Erase name after it gets entered. 
             setRefreshFlag(!refreshFlag)
         } 
     }
@@ -42,9 +40,7 @@ const Home = (props) => {
     }
 
     return (
-        <div align='center'>
-            <div>‏‏‎ ‎‎‎</div>
-            <div>‏‏‎ ‎</div>
+        <div align='center' style={{marginTop: '40px'}}>
             { start ? 
                 < Game players={players} setPlayers={setPlayers} />
             : 

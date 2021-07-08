@@ -6,6 +6,7 @@ import Die from './Die'
 // props.players = [{ name: playerName, turnScore: 0, totalScore: 0, totalWins: 0}, {}]
 // props.setPlayers // function for updating props.players list.
 const Game = (props) => {
+    
     var [currentPlayer, setCurrentPlayer] = useState(0)
     var [bgColor, setBgColor] = useState('orange')
     var [firstDie, setFirstDie] = useState(Math.floor(Math.random() * 6) + 1)
