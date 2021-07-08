@@ -7,7 +7,6 @@ const Home = (props) => {
     const [start, setStart]=useState(false)
     const [players, setPlayers]=useState([])
     const [playerName, setPlayerName]=useState('')
-    const [refreshFlag, setRefreshFlag] = useState(false)
     
     // Edit the name that's about to be added whenever the input field values changes. 
     const editPlayerName = (e) => {
@@ -31,7 +30,6 @@ const Home = (props) => {
             console.log("List of players is: ", players)   
             let inputBox = document.getElementsByClassName('name-input')[0] 
             inputBox.value = '' // Erase name after it gets entered. 
-            setRefreshFlag(!refreshFlag)
         } 
     }
     
