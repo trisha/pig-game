@@ -6,7 +6,7 @@ const Player = (props) => {
     return (
         <div>
             { props.current ? 
-            <p><b>{props.player.name}</b>: Total score of {props.player.totalScore} </p>
+            <p><strong>{props.player.name}</strong>: Total score of {props.player.totalScore} </p>
             :
             <p>{props.player.name}: Total score of {props.player.totalScore}</p>
             }

@@ -40,7 +40,6 @@ const Home = (props) => {
     const startGame = (e) => {
         setStart(true)
     }
-    
 
     return (
         <div align='center'>
@@ -60,6 +59,7 @@ const Home = (props) => {
                     </Col>    
                 </Form.Group>
 
+                {/* Below code is if you would prefer to use vanilla JS instead of Bootstrap React. */}
                 {/* <form >
                     <input type='text' className='name-input textbox-big box-shadow' onChange={(e)=>{editPlayerName(e)}}></input>
                     <Button variant="outline-primary" type="submit" onClick={(e)=>addPlayer(e)}>Add Player</Button>

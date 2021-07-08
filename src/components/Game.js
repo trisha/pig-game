@@ -82,13 +82,13 @@ const Game = (props) => {
     // Either display winner, or continue playing the game.
     let display = winner ? 
         <div>
-            <b>{props.players[currentPlayer - 1].name} is the winner with a total score of {props.players[currentPlayer - 1].totalScore}!!!</b>
+            <strong>{props.players[currentPlayer - 1].name} is the winner with a total score of {props.players[currentPlayer - 1].totalScore}!!!</strong>
         </div> 
         :
         <div>
             <hr />
             <div style={{backgroundColor: `${bgColor}`}}>
-                <b>{props.players[currentPlayer].name}</b> is the current player
+                <strong>{props.players[currentPlayer].name}</strong> is the current player
                 <br />
                 Total score: {props.players[currentPlayer].totalScore}
                 <br />
@@ -101,9 +101,9 @@ const Game = (props) => {
             < Die value={secondDie} />
             <br />
             <div>
-                <b>{message}</b>
+            <strong>{message}</strong>
                 <br />
-                <b>{secondMessage}</b>
+                <strong>{secondMessage}</strong>
             </div>
             <br />
             <div>
